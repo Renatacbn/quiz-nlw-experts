@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+
+*, :root {
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+  font-family: 'Inter', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: 
+grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: #0f172a;
+}
+
+
+main {
+  padding: 20px;
+  max-width: 640px;
+  margin: 0 auto 64px;
+}
+
+header {
+  margin-top: 64px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #334155;
+}
+
+header h1 {
+  margin-top: 24px;
+  font-size: 30px;
+  color: #f1f5f9;
+}
+/* adicionando os números */
+#quiz {
+  /* inicia o contador */
+counter-reset: quiz-item;
+}
+
+.quiz-item {
+  margin-top: 24px;
+  border: 1px solid #475569;
+  /* arredondamento de borda */
+  border-radius: 6px;
+/* função para esconder o transbordamento das bordas, ou seja alinhar o background do item filho */
+  overflow: hidden;
+}
+
+.quiz-item h3 {
+  padding: 16px 20px;
+  color: #e2e8f0;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  background-color: #1e293b;
+}
+
+.quiz-item h3:before {
+  /* incrementa o contador */
+  counter-increment: quiz-item ;
+  content: counter(quiz-item);
+
+  background-color: #475569;
+  width: 28px;
+  height: 28px;
+  font-size: 12px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* função para não deixar oval ou encurtar/espixar o elemento quando diminuir a tela */
+  flex-shrink: 0;
+}
+
+.quiz-item dl {
+  padding: 20px 24px;
+  /*propriedade para dar espaçamento nos itens filhos  */
+  display: grid;
+  gap: 8px;
+}
+
+/* estilizando a fonte dos filhos */
+.quiz-item dl dt {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0;
+  /* função para centralizar os elementos resposta */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #e2e8f0;
+}
+
+/* estilizando o input */
+input{
+  /* propriedade para zerar as config do imput que ja vem por padrão */
+  all: unset;
+  /* reconstruindo o input nesta propriedade ele ficará apenas um traço */
+  border: 1px solid #94a3b8;
+  width: 16px;
+  height: 16px;
+/* para formar a caixinha de seleção pode-se colocar o, mas também pode add no elemento pai(dt)  */
+/* propriedade para arredondar a caixinha */
+border-radius: 50%;
+display: flex;
+/* alinha no eixo x */
+align-items: center; 
+/* alinha no eixo y */
+justify-content: center;
+flex-shrink: 0;
+}
+
+/* propriedade para verificar se esta clicado o input */
+input:checked {
+  /* propriedade para modificar a cor quando clicar */
+  border: 1px solid #a3e635;
+}
+/* adicionando mais um elemento no imput para ficar com o estilo de 2 circulos */
+input:checked:before {
+  content: "";
+  width: 10px;
+  height: 10px;
+
+  background-color: #a3e635;
+  border-radius: 50%;
+}
+
+
+
+
+#acertos {
+  /* alinhamento no centro */
+  text-align: center;
+  background-color: #a3e635;
+  /* fixar o elemento */
+  position: fixed; 
+  /* bottom significa rodapé da página */
+  bottom: 0;
+  /* cola na esquerda da tela */
+  left: 0;
+  /* propriedade para ocupar toda a largura da tela */
+  width: 100%;
+  padding: 7px;
+}
